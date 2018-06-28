@@ -1,8 +1,8 @@
 <template>
   <div class="checkbox">
-    Numbers
-    <input type="checkbox" id="cbx" style="display:none" />
-    <label for="cbx" class="toggle">
+    {{options.label}}
+    <input :name="options.name" type="checkbox" :id="options.name" style="display:none" :checked="options.value" @change="onChange" />
+    <label :for="options.name" class="toggle">
       <span></span>
     </label>
   </div>
@@ -11,10 +11,10 @@
 <script>
 export default {
   name: 'CheckboxField',
-  props: ['length'],
+  props: ['options'],
   methods: {
-    onInput(event) {
-      this.$emit('updateLength', event.target.value);
+    onChange(event) {
+      this.$emit('updateOption', event.target);
     },
   },
 };
@@ -23,6 +23,8 @@ export default {
 <style scoped>
 .checkbox {
   text-align: left;
+  flex: 1;
+  user-select: none;
 }
 .toggle {
   position: relative;
@@ -54,10 +56,10 @@ export default {
   background: white;
   border-radius: 10px;
 }
-#cbx:checked + .toggle:before {
+input:checked + .toggle:before {
   background: #200064;
 }
-#cbx:checked + .toggle span {
+input:checked + .toggle span {
   background: #200064;
   transform: translateX(14px);
 }

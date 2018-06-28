@@ -2,9 +2,14 @@
   <div id="app">
     <h1>Dummy Password Generator</h1>
 
-    <PasswordGenerator :length="length" />
-    <RangeField :length="length" @updateLength="onUpdateLength" />
-    <CheckboxField :length="length" @updateLength="onUpdateLength" />
+    <PasswordGenerator :options="options" />
+    <RangeField :length="options.length" @updateLength="onUpdateLength" />
+    <div class="options">
+      <CheckboxField :options="{name: 'lower',value: options.lower, label: 'Lowercase'}" @updateOption="onUpdateOption" />
+      <CheckboxField :options="{name: 'upper',value: options.upper, label: 'Uppercase'}" @updateOption="onUpdateOption" />
+      <CheckboxField :options="{name: 'digits',value: options.digits, label: 'Digits'}" @updateOption="onUpdateOption" />
+      <CheckboxField :options="{name: 'symbols',value: options.symbols, label: 'Symbols'}" @updateOption="onUpdateOption" />
+    </div>
   </div>
 </template>
 
@@ -17,7 +22,13 @@ export default {
   name: 'app',
   data() {
     return {
-      length: 6,
+      options: {
+        length: 6,
+        lower: true,
+        upper: true,
+        digits: true,
+        symbols: false,
+      },
     };
   },
   components: {
@@ -27,7 +38,10 @@ export default {
   },
   methods: {
     onUpdateLength(value) {
-      this.length = value;
+      this.options.length = value;
+    },
+    onUpdateOption(target) {
+      this.options[target.name] = target.checked;
     },
   },
 };
@@ -133,5 +147,10 @@ body {
   100% {
     background-position: 0% 44%;
   }
+}
+
+.options {
+  width: 100%;
+  display: flex;
 }
 </style>

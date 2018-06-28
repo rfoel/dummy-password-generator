@@ -18,7 +18,7 @@ const dummy = new DummyPassword();
 
 export default {
   name: 'PasswordGenerator',
-  props: ['length'],
+  props: ['options'],
   data() {
     return {
       password: '',
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     generate() {
-      this.password = dummy.create(this.length);
+      this.password = dummy.create(this.options.length);
     },
     copy() {},
     refresh() {
@@ -34,7 +34,7 @@ export default {
     },
   },
   watch: {
-    length: function() {
+    'options.length': function() {
       this.generate();
     },
   },

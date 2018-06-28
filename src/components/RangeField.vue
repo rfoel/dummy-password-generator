@@ -19,7 +19,7 @@ export default {
   props: ['length'],
   data() {
     return {
-      style: 'background: linear-gradient(to right, #200064 0%, #200064 20%, #fff 20%, #fff 100%)',
+      style: 'background: linear-gradient(to right, #200064 0%, #200064 12%, #fff 12%, #fff 100%)',
     };
   },
   methods: {
