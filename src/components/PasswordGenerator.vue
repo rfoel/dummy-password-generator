@@ -26,7 +26,11 @@ export default {
   },
   methods: {
     generate() {
-      this.password = dummy.create(this.options.length);
+      const characters = [];
+      for (let option in this.options) {
+        if (this.options[option] === true) characters.push(dummy[option.toUpperCase()]);
+      }
+      this.password = dummy.create(this.options.length, characters.join(''));
     },
     copy() {},
     refresh() {
@@ -34,8 +38,11 @@ export default {
     },
   },
   watch: {
-    'options.length': function() {
-      this.generate();
+    options: {
+      handler: function() {
+        this.generate();
+      },
+      deep: true,
     },
   },
   mounted() {
