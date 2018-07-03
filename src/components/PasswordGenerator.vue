@@ -2,7 +2,7 @@
   <div class="input input-with-addon">
     <input type="text" v-model="password" readonly>
     <div class="buttons">
-      <a data-tooltip="Copy" v-clipboard:copy="password">
+      <a data-tooltip="Copy" v-clipboard:copy="password" v-clipboard:success="onCopy" v-clipboard:error="onError">
         <img src="../assets/copy.svg" alt="Copy">
       </a>
       <a @click="refresh" data-tooltip="Refresh">
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { toast } from '../toast';
 import DummyPassword from '../dummy-password';
 const dummy = new DummyPassword();
 
@@ -34,6 +35,12 @@ export default {
     },
     refresh() {
       this.generate();
+    },
+    onCopy() {
+      toast({ message: 'Copied!' });
+    },
+    onError() {
+      toast({ message: `I didn't copy that!` });
     },
   },
   watch: {

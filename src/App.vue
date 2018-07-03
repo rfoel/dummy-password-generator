@@ -88,7 +88,6 @@ body {
 [data-tooltip]:before,
 [data-tooltip]:after {
   visibility: hidden;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   pointer-events: none;
@@ -102,7 +101,6 @@ body {
   margin-left: -60px;
   padding: 7px;
   width: 100px;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   background-color: #200064;
@@ -131,7 +129,6 @@ body {
 [data-tooltip]:hover:before,
 [data-tooltip]:hover:after {
   visibility: visible;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
@@ -151,5 +148,52 @@ body {
 .options {
   width: 100%;
   display: flex;
+}
+
+.notices {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  box-sizing: border-box;
+  padding: 1em;
+  overflow: hidden;
+  z-index: 1000;
+  pointer-events: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.notices.is-bottom {
+  flex-direction: column-reverse;
+}
+.notices .notification {
+  opacity: 0.8;
+  pointer-events: auto;
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: #a8ff78;
+  background: #200064;
+  padding: 1rem 0.5rem;
+  border-radius: 3px;
+}
+.notices .notification.is-top {
+  align-self: flex-start;
+}
+.notices .notification.is-bottom {
+  align-self: flex-end;
+}
+.notices .notification.is-left {
+  margin-right: auto;
+}
+.notices .notification.is-right {
+  margin-left: auto;
+}
+.notices .notification.is-center {
+  margin: 0 auto;
 }
 </style>
