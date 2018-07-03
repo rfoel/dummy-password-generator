@@ -2,7 +2,7 @@
   <div class="input input-with-addon">
     <input type="text" v-model="password" readonly>
     <div class="buttons">
-      <a @click="copy" data-tooltip="Copy">
+      <a data-tooltip="Copy" v-clipboard:copy="password">
         <img src="../assets/copy.svg" alt="Copy">
       </a>
       <a @click="refresh" data-tooltip="Refresh">
@@ -32,7 +32,6 @@ export default {
       }
       this.password = dummy.create(this.options.length, characters.join(''));
     },
-    copy() {},
     refresh() {
       this.generate();
     },
