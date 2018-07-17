@@ -48,7 +48,7 @@ export default {
 }
 label {
   display: block;
-  text-align: left;
+  text-align: center;
 }
 .input {
   display: flex;

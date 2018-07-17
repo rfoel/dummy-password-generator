@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 .checkbox {
-  text-align: left;
+  text-align: center;
   flex: 1;
   user-select: none;
 }
@@ -33,7 +33,7 @@ export default {
   height: 20px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  margin-top: 5px;
+  margin: 5px auto 0 auto;
 }
 .toggle:before {
   content: '';

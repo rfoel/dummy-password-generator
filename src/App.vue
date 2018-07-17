@@ -65,8 +65,9 @@ body {
   background: #a8ff78;
   background: linear-gradient(to right, #78ffd6, #a8ff78);
   background-size: 300% 300%;
-
   animation: Wave 10s ease infinite;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 #app {
@@ -158,7 +159,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  right:0;
+  right: 0;
   box-sizing: border-box;
   padding: 1em;
   overflow: hidden;
