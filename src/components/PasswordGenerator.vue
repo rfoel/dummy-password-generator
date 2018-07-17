@@ -2,7 +2,7 @@
   <div class="input input-with-addon">
     <input type="text" v-model="password" readonly>
     <div class="buttons">
-      <a data-tooltip="Copy" v-clipboard:copy="password" v-clipboard:success="onCopy" v-clipboard:error="onError">
+      <a v-clipboard:copy="password" v-clipboard:success="onCopy" v-clipboard:error="onError">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path fill="#200064" d="M366.905,108.016h-141.91c-11.048,0-20.003,8.955-20.003,20.003s8.955,20.003,20.003,20.003h141.91
 	c11.048,0,20.003-8.955,20.003-20.003S377.952,108.016,366.905,108.016z" />
@@ -22,7 +22,7 @@
 	C162.535,423.729,182.622,432.047,203.992,432.047z" />
         </svg>
       </a>
-      <a @click="refresh" data-tooltip="Refresh">
+      <a @click="refresh">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999">
           <path fill="#200064" d="M367.585,458.394c-5.307-9.686-17.462-13.236-27.149-7.929c-25.712,14.088-54.909,21.534-84.436,21.534
 			c-97.047,0-176-78.953-176-176.004c0-11.046-8.954-19.998-20-19.998s-20,8.956-20,20.002c0,57.696,22.468,111.938,63.265,152.735
@@ -102,6 +102,7 @@ a svg {
 }
 
 .input-with-addon input {
+  width: 100%;
   flex: 1;
   font-size: 2rem;
   color: #200064;

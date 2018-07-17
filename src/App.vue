@@ -80,60 +80,6 @@ body {
   background: #200064;
 }
 
-[data-tooltip] {
-  position: relative;
-  z-index: 2;
-  cursor: pointer;
-}
-
-[data-tooltip]:before,
-[data-tooltip]:after {
-  visibility: hidden;
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  pointer-events: none;
-}
-
-[data-tooltip]:before {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-bottom: 25px;
-  margin-left: -60px;
-  padding: 7px;
-  width: 100px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #200064;
-  color: #fff;
-  content: attr(data-tooltip);
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-[data-tooltip]:after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  margin-bottom: 20px;
-  width: 0;
-  border-top: 5px solid #200064;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  content: ' ';
-  font-size: 0;
-  line-height: 0;
-}
-
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
 @keyframes Wave {
   0% {
     background-position: 0% 44%;
@@ -149,6 +95,7 @@ body {
 .options {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .notices {
@@ -177,9 +124,9 @@ body {
   pointer-events: auto;
   display: inline-flex;
   margin-bottom: 1rem;
-  color: #a8ff78;
+  color: #fff;
   background: #200064;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
   border-radius: 3px;
 }
 .notices .notification.is-top {

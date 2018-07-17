@@ -97,7 +97,6 @@ input[type='range']::-moz-range-track {
   width: 100%;
   height: 5px;
   cursor: pointer;
-  animate: 0.2s;
   box-shadow: 0px 0px 0px #200064;
   background: #fff;
   border-radius: 1px;

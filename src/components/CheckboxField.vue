@@ -25,6 +25,8 @@ export default {
   text-align: center;
   flex: 1;
   user-select: none;
+  min-width: 130px;
+  margin: 10px 0;
 }
 .toggle {
   position: relative;
