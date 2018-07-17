@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <h1>Dummy Password Generator</h1>
-
-    <PasswordGenerator :options="options" />
-    <RangeField :length="options.length" @updateLength="onUpdateLength" />
-    <div class="options">
-      <CheckboxField :options="{name: 'lower',value: options.lower, label: 'Lowercase'}" @updateOption="onUpdateOption" />
-      <CheckboxField :options="{name: 'upper',value: options.upper, label: 'Uppercase'}" @updateOption="onUpdateOption" />
-      <CheckboxField :options="{name: 'digits',value: options.digits, label: 'Digits'}" @updateOption="onUpdateOption" />
-      <CheckboxField :options="{name: 'symbols',value: options.symbols, label: 'Symbols'}" @updateOption="onUpdateOption" />
-    </div>
+    <main>
+      <h1>Dummy Password Generator</h1>
+      <PasswordGenerator :options="options" />
+      <RangeField :length="options.length" @updateLength="onUpdateLength" />
+      <div class="options">
+        <CheckboxField :options="{name: 'lower',value: options.lower, label: 'Lowercase'}" @updateOption="onUpdateOption" />
+        <CheckboxField :options="{name: 'upper',value: options.upper, label: 'Uppercase'}" @updateOption="onUpdateOption" />
+        <CheckboxField :options="{name: 'digits',value: options.digits, label: 'Digits'}" @updateOption="onUpdateOption" />
+        <CheckboxField :options="{name: 'symbols',value: options.symbols, label: 'Symbols'}" @updateOption="onUpdateOption" />
+      </div>
+    </main>
+    <footer>
+      <Socials />
+    </footer>
   </div>
 </template>
 
@@ -17,6 +21,7 @@
 import PasswordGenerator from './components/PasswordGenerator';
 import RangeField from './components/RangeField';
 import CheckboxField from './components/CheckboxField';
+import Socials from './components/Socials';
 
 export default {
   name: 'app',
@@ -35,6 +40,7 @@ export default {
     PasswordGenerator,
     RangeField,
     CheckboxField,
+    Socials,
   },
   methods: {
     onUpdateLength(value) {
@@ -72,7 +78,19 @@ body {
 
 #app {
   width: 100%;
+  height: 100%;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  /* height: 100%; */
 }
 
 ::selection {
