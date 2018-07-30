@@ -1,2 +1,2 @@
-# dummy-password-generator
-A dummy password generator built with Vue
+# Dummy Password Generator
+A (not so) dummy password generator built with Vue
